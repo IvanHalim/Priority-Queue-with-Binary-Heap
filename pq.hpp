@@ -110,12 +110,12 @@ void pq<T>::heapify_down(int idx) {
 
 template <class T>
 bool pq<T>::is_empty() {
-    return heap.size() == 0;
+    return heap.empty();
 }
 
 template <class T>
 T pq<T>::first() {
-    assert(!is_empty());
+//    assert(!is_empty());
     return heap[0].data;
 }
 

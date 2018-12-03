@@ -5,6 +5,7 @@ using std::string;
 
 int main() {
     pq<string> pq1;
+    pq1.first();
     pq1.insert("seven", 7);
     pq1.insert("four", 4);
     pq1.insert("nine", 9);

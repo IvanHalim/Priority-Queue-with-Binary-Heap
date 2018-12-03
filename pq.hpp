@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using std::cout;
 using std::endl;
@@ -114,11 +115,13 @@ bool pq<T>::is_empty() {
 
 template <class T>
 T pq<T>::first() {
+    assert(!is_empty());
     return heap[0].data;
 }
 
 template <class T>
 int pq<T>::first_priority() {
+    assert(!is_empty());
     return heap[0].priority;
 }
 
@@ -138,6 +141,7 @@ void pq<T>::insert(T data, int priority) {
 
 template <class T>
 T pq<T>::remove_first() {
+    assert(!is_empty());
     T first = heap[0].data;
     heap[0] = heap[heap.size() - 1];
     heap.pop_back();

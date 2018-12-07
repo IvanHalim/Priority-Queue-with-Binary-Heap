@@ -104,7 +104,7 @@ template <class T>
 void pq<T>::heapify_down(int parent) {
     while (min_child(parent) != -1 && heap[parent].priority > heap[min_child(parent)].priority) {
         swap(heap[min_child(parent)], heap[parent]);
-        child = parent(child);
+        parent = min_child(parent);
     }
 }
 

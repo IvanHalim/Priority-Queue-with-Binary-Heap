@@ -94,17 +94,17 @@ void pq<T>::swap(item& a, item& b) {
 
 template <class T>
 void pq<T>::heapify_up(int child) {
-    if (parent(child) != -1 && heap[parent(child)].priority > heap[child].priority) {
+    while (parent(child) != -1 && heap[parent(child)].priority > heap[child].priority) {
         swap(heap[parent(child)], heap[child]);
-        heapify_up(parent(child));
+        child = parent(child);
     }
 }
 
 template <class T>
 void pq<T>::heapify_down(int parent) {
-    if (min_child(parent) != -1 && heap[parent].priority > heap[min_child(parent)].priority) {
+    while (min_child(parent) != -1 && heap[parent].priority > heap[min_child(parent)].priority) {
         swap(heap[min_child(parent)], heap[parent]);
-        heapify_down(min_child(parent));
+        child = parent(child);
     }
 }
 

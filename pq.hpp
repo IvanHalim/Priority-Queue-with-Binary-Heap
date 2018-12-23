@@ -36,8 +36,13 @@ class pq {
 
 template <class T>
 struct pq<T>::item {
-    T data;
+    T   data;
     int priority;
+
+    item(T Data, int Priority) {
+        data = Data;
+        priority = Priority;
+    }
 };
 
 template <class T>
@@ -132,10 +137,7 @@ int pq<T>::size() {
 
 template <class T>
 void pq<T>::insert(T data, int priority) {
-    item x;
-    x.data = data;
-    x.priority = priority;
-    heap.push_back(x);
+    heap.push_back(item(data, priority));
     heapify_up(heap.size() - 1);
 }
 
